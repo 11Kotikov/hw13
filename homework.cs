@@ -4,14 +4,14 @@
 // 1    -3,3  8   -9,9
 // 8     7,8 -7,1  9
 
-double [,] Create2dArray(int rows, int columns, int minValue, int maxvalue)
+double [,] Create2dArray(int rows, int columns)
 {
     double [,] matrix = new double[rows, columns];
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < columns; j++)
         {
-            matrix[i, j] = new Random().Next(minValue, maxvalue + 1);
+            matrix[i, j] = new Random().NextDouble();
         }
     }
     return matrix;
@@ -32,10 +32,6 @@ System.Console.WriteLine("Input number of rows: ");
 int rows = Convert.ToInt32(Console.ReadLine());
 System.Console.WriteLine("Input number of columns: ");
 int columns = Convert.ToInt32(Console.ReadLine());
-System.Console.WriteLine("Input min possible value: ");
-int minValue = Convert.ToInt32(Console.ReadLine());
-System.Console.WriteLine("Input max possible value: ");
-int maxValue = Convert.ToInt32(Console.ReadLine());
 
-double [,] created2dArray = Create2dArray(rows, columns, minValue, maxValue);
+double [,] created2dArray = Create2dArray(rows, columns);
 Show2dArray (created2dArray);
