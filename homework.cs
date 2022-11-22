@@ -4,15 +4,16 @@
 // 1    -3,3  8   -9,9
 // 8     7,8 -7,1  9
 
-double [,] Create2dArray(int rows, int columns)
+double[,] Create2dArray(int rows, int columns)
 {
-    double [,] matrix = new double[rows, columns];
+    double[,] matrix = new double[rows, columns];
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < columns; j++)
         {
-            matrix[i, j] = new Random().NextDouble();
+            matrix[i, j] = Math.Round(new Random().NextDouble() * 10 - 3.2, 1);
         }
+
     }
     return matrix;
 }
@@ -33,5 +34,5 @@ int rows = Convert.ToInt32(Console.ReadLine());
 System.Console.WriteLine("Input number of columns: ");
 int columns = Convert.ToInt32(Console.ReadLine());
 
-double [,] created2dArray = Create2dArray(rows, columns);
-Show2dArray (created2dArray);
+double[,] created2dArray = Create2dArray(rows, columns);
+Show2dArray(created2dArray);
