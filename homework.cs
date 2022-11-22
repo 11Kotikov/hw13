@@ -96,8 +96,64 @@
 // bool chekedResult = CheckingNumber(checkedNumber, matrix);
 // if (chekedResult == true)
 // {
-//     System.Console.WriteLine(checkedNumber + " is in array");
+//     System.Console.WriteLine(checkedNumber + " is inside the array");
 // }
 // else {
-//     System.Console.WriteLine(checkedNumber + " isn't in array");
+//     System.Console.WriteLine(checkedNumber + " isn't inside the array");
 // }
+
+// Задача 52. Задайте двумерный массив из целых чисел.
+// Найдите среднее арифметическое элементов в каждом столбце.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+
+int[,] Create2dArray(int rows, int columns)
+{
+    int[,] createdArray = new int[rows, columns];
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            createdArray[i, j] = new Random().Next(0, 10);
+        }
+    }
+    return createdArray;
+}
+void Show2dArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            System.Console.Write(array[i, j] + " ");
+        }
+        System.Console.WriteLine();
+    }
+}
+
+double[] FindAverage(int[,] array)
+{
+    double [] avrge = new double[array.GetLength(1)];
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            avrge[j] += array[i, j];
+        }
+        avrge[j] /=array.GetLength(0);
+        System.Console.WriteLine($"The average of the {j+1} is {avrge[j]}; ");
+    }
+    return avrge;
+}
+
+System.Console.WriteLine("Input number of rows: ");
+int rows = Convert.ToInt32(Console.ReadLine());
+System.Console.WriteLine("Input number of columns: ");
+int columns = Convert.ToInt32(Console.ReadLine());
+
+int[,] matrix = Create2dArray(rows, columns);
+Show2dArray(matrix);
+FindAverage(matrix);
