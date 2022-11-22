@@ -4,17 +4,17 @@
 // 1    -3,3  8   -9,9
 // 8     7,8 -7,1  9
 
-double[,] Create2dArray(int rows, int columns, int minValue, int maxvalue)
+double [,] Create2dArray(int rows, int columns, int minValue, int maxvalue)
 {
-    double[,] createdArray = new double[rows, columns];
+    double [,] matrix = new double[rows, columns];
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < columns; j++)
         {
-            createdArray[i, j] = new Random().Next(minValue, maxvalue + 1);
+            matrix[i, j] = new Random().Next(minValue, maxvalue + 1);
         }
     }
-    return createdArray;
+    return matrix;
 }
 void Show2dArray(double[,] array)
 {
